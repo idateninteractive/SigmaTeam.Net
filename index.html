@@ -3,92 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sigma Team Wallpapers</title>
+    <title>Sigma Team Games Library</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: #121212; color: #ffffff; }
+        body { background-color: #121212; color: #ffffff; padding-bottom: 50px; }
 
-        .top-bar {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.623), rgba(0, 0, 0, 0.6)), url('https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/33100/page_bg_raw.jpg?t=1773835157');
-            background-size: cover; background-position: center;
-            padding: 15px 0; display: flex; justify-content: center; align-items: center;
-            position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
-        .top-logo { height: 60px; object-fit: contain; filter: drop-shadow(0px 2px 8px rgba(0,0,0,0.8)); }
-        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .wallpaper-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
-        .wallpaper-card { background-color: #1e1e1e; border-radius: 8px; overflow: hidden; transition: 0.3s; }
-        .wallpaper-card:hover { transform: translateY(-5px); }
-        .wallpaper-img { width: 100%; height: 200px; object-fit: cover; display: block; }
-        .wallpaper-info { padding: 15px; display: flex; justify-content: space-between; align-items: center; }
-        .download-btn { background-color: #ffffff; color: #000000; border: none; padding: 8px 15px; border-radius: 4px; font-weight: bold; cursor: pointer; transition: 0.2s; }
-        .download-btn:hover { background-color: #cccccc; }
+        .top-bar { background-color: #000; padding: 20px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid #ff4500; }
+        .container { max-width: 800px; margin: 20px auto; padding: 20px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .game-card { background: #1e1e1e; padding: 15px; border-radius: 10px; cursor: pointer; border: 1px solid #333; transition: 0.3s; }
+        .game-card:hover { transform: scale(1.02); border-color: #ff4500; }
+        .game-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 5px; }
+
+        .detail-view { display: none; background: #1a1a1a; padding: 20px; border-radius: 10px; border: 1px solid #444; }
+        .about-text { margin: 20px 0; line-height: 1.6; color: #ccc; font-size: 16px; }
+        .genre-tag { background: #ff4500; padding: 5px 10px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+        
+        .promo-box { margin-top: 20px; padding: 20px; background: #2a2a2a; border-radius: 5px; text-align: center; }
+        .promo-box input { padding: 10px; width: 200px; border-radius: 4px; border: none; text-align: center; font-size: 16px; text-transform: uppercase; }
+        .download-link-btn { display: none; background: #28a745; color: white; padding: 15px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 10px; }
+        .back-btn { background: none; border: none; color: #ff4500; cursor: pointer; font-size: 16px; margin-bottom: 10px; }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        <img src="https://shared.steamstatic.com/store_item_assets/steam/apps/951530/logo.png?t=1687441285" alt="Sigma Team Logo" class="top-logo">
-    </div>
+    <div class="top-bar"><h2>SIGMA TEAM GAMES</h2></div>
 
     <div class="container">
-        <h2 class="section-title">Latest Wallpapers</h2>
-        <div class="wallpaper-grid">
-            
-            <div class="wallpaper-card">
-                <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/33100/page_bg_raw.jpg?t=1773835157" class="wallpaper-img">
-                <div class="wallpaper-info">
-                    <span>Alien Shooter Vibe</span>
-                    <button class="download-btn" data-url="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/33100/page_bg_raw.jpg?t=1773835157">Download</button>
-                </div>
-            </div>
+        <div id="home-view" class="grid">
+            <div class="game-card" onclick="showGame('game1')"><img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1007400/capsule_616x353.jpg?t=1700734144"><h3>Alien Shooter 2 - The Legend</h3></div>
+            <div class="game-card" onclick="showGame('game2')"><img src="https://steamah.com/wp-content/uploads/2022/06/Alien-Shooter-2-New-Era.jpg"><h3>Alien Shooter 2 - New Era</h3></div>
+            <div class="game-card" onclick="showGame('game3')"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBPt1Dz4U-LOiGVMTnweg4pmp3OpETUXaJRDL0t4_qhw&s=10"><h3>Alien Shooter Vengeance</h3></div>
+            <div class="game-card" onclick="showGame('game4')"><img src="https://tse3.mm.bing.net/th/id/OIP.z2q8Co1vLTm_JBKwfqOLLAHaDb?cb=thfvnextfalcon4&rs=1&pid=ImgDetMain&o=7&rm=3"><h3>Alien Shooter 2 Reloaded</h3></div>
+            <div class="game-card" onclick="showGame('game5')"><img src="https://cdn.akamai.steamstatic.com/steam/apps/951530/capsule_616x353.jpg?t=1655832408"><h3>Alien Shooter – Last Hope</h3></div>
+            <div class="game-card" onclick="showGame('game6')"><img src="https://cdn.dlcompare.com/game_tetiere/upload/gameimage/file/10417.jpeg.webp"><h3>Zombie Shooter 2</h3></div>
+        </div>
 
-            <div class="wallpaper-card">
-                <img src="https://external-preview.redd.it/the-legendary-game-from-your-and-my-childhood-is-finally-v0-k8uz-yEq35tb2woVXFSzV4fH7pPk9suk1sWCxhnoACk.jpg?auto=webp&s=2a5b934b2db1dbaff260c53f090eb6561236d65f" class="wallpaper-img">
-                <div class="wallpaper-info">
-                    <span>Alien Shooter Campaign</span>
-                    <button class="download-btn" data-url="https://external-preview.redd.it/the-legendary-game-from-your-and-my-childhood-is-finally-v0-k8uz-yEq35tb2woVXFSzV4fH7pPk9suk1sWCxhnoACk.jpg?auto=webp&s=2a5b934b2db1dbaff260c53f090eb6561236d65f">Download</button>
-                </div>
-            </div>
-
-            <div class="wallpaper-card">
-                <img src="https://cdn.dlcompare.com/game_tetiere/upload/gameimage/file/24316.jpeg.webp" class="wallpaper-img">
-                <div class="wallpaper-info">
-                    <span>Alien Shooter Action</span>
-                    <button class="download-btn" data-url="https://cdn.dlcompare.com/game_tetiere/upload/gameimage/file/24316.jpeg.webp">Download</button>
-                </div>
-            </div>
-
-            <div class="wallpaper-card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTri7-hG-l0vVDZ4aYl_eg63BbXxjux7MNWumta8uwRLDrjMm2I5hhfN3ml&s=10" class="wallpaper-img">
-                <div class="wallpaper-info">
-                    <span>Alien Shooter Classic</span>
-                    <button class="download-btn" data-url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTri7-hG-l0vVDZ4aYl_eg63BbXxjux7MNWumta8uwRLDrjMm2I5hhfN3ml&s=10">Download</button>
-                </div>
-            </div>
+        <div id="detail-view" class="detail-view">
+            <button class="back-btn" onclick="goBack()">← Back to Library</button>
+            <div id="game-content"></div>
         </div>
     </div>
 
     <script>
-        document.querySelectorAll('.download-btn').forEach(button => {
-            button.addEventListener('click', async () => {
-                const imageUrl = button.getAttribute('data-url');
-                try {
-                    const response = await fetch(imageUrl);
-                    const blob = await response.blob();
-                    const url = window.URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.style.display = 'none';
-                    a.href = url;
-                    a.download = 'wallpaper.jpg';
-                    document.body.appendChild(a);
-                    a.click();
-                    window.URL.revokeObjectURL(url);
-                } catch (error) {
-                    window.open(imageUrl, '_blank'); // Agar direct download fail ho, toh tab mein open kare
-                }
-            });
-        });
+        // Aapke valid promo codes
+        const VALID_CODES = ["ASWFAN", "ASWORD", "ASFANG"];
+
+        const games = {
+            'game1': { title: "Alien Shooter 2 - The Legend", img: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1007400/capsule_616x353.jpg?t=1700734144", about: "Fast-paced top-down action shooter.", link: "https://www.4fnet.org/goto/aHR0cHM6Ly9tZWdhdXAubmV0LzJhNTZlZTU2ZjY2YmU0NmQ1ZDIxYjZhMzdkOWJhMjRmL0FsaWVuLlNob290ZXIuMi5UaGUuTGVnZW5kLnYxLjMuMi5yYXI=", genre: "ACTION & RPG" },
+            'game2': { title: "Alien Shooter 2 - New Era", img: "https://steamah.com/wp-content/uploads/2022/06/Alien-Shooter-2-New-Era.jpg", about: "Thousands of monsters coming from all sides.", link: "https://uploadhaven.com/download/7af43982a4d288f1979164a4930c806c", genre: "ACTION" },
+            'game3': { title: "Alien Shooter Vengeance", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBPt1Dz4U-LOiGVMTnweg4pmp3OpETUXaJRDL0t4_qhw&s=10", about: "Mercenary from the M.A.G.M.A Corporation.", link: "https://www.4fnet.org/goto/aHR0cHM6Ly9waXhlbGRyYWluLmNvbS91L3RLbmRSZ1A5", genre: "ACTION" },
+            'game4': { title: "Alien Shooter 2 Reloaded", img: "https://tse3.mm.bing.net/th/id/OIP.z2q8Co1vLTm_JBKwfqOLLAHaDb?cb=thfvnextfalcon4&rs=1&pid=ImgDetMain&o=7&rm=3", about: "Intense top-down action shooter.", link: "https://www.4fnet.org/goto/aHR0cHM6Ly9tZWdhdXAubmV0L2QxYTUxMmVmNDgzNjk2NTdhY2FlYTdhYjE3Yjk4MWJkL0FsaWVuU2hvb3QyUmVsb2FkZWRHT0cucmFy", genre: "ACTION & RPG" },
+            'game5': { title: "Alien Shooter – Last Hope", img: "https://cdn.akamai.steamstatic.com/steam/apps/951530/capsule_616x353.jpg?t=1655832408", about: "Find a new weapon and upgrade it.", link: "https://www.4fnet.org/goto/aHR0cHM6Ly9waXhlbGRyYWluLmNvbS91L2RpOTk2bnh2", genre: "ACTION & ADVENTURE" },
+            'game6': { title: "Zombie Shooter 2", img: "https://cdn.dlcompare.com/game_tetiere/upload/gameimage/file/10417.jpeg.webp", about: "Unique mix of action and RPG.", link: "https://www.4fnet.org/goto/aHR0cHM6Ly9waXhlbGRyYWluLmNvbS91L2pBam8yN0Ez", genre: "ACTION, RPG, HORROR" }
+        };
+
+        function showGame(id) {
+            const game = games[id];
+            document.getElementById('game-content').innerHTML = `
+                <img src="${game.img}" style="width:100%; border-radius: 5px;">
+                <h1 style="margin-top:20px;">${game.title}</h1>
+                <p style="margin: 10px 0;"><span class="genre-tag">${game.genre}</span></p>
+                <p class="about-text">${game.about}</p>
+                
+                <div class="promo-box">
+                    <p>Enter Promo Code to Download:</p>
+                    <input type="text" id="promo-input" placeholder="ENTER CODE" onkeyup="checkCode('${id}')">
+                    <br>
+                    <a id="download-link-${id}" href="${game.link}" target="_blank" class="download-link-btn">UNLOCK & DOWNLOAD</a>
+                </div>
+            `;
+            document.getElementById('home-view').style.display = 'none';
+            document.getElementById('detail-view').style.display = 'block';
+        }
+
+        function checkCode(id) {
+            const input = document.getElementById('promo-input').value.toUpperCase();
+            const linkBtn = document.getElementById('download-link-' + id);
+            
+            if(VALID_CODES.includes(input)) {
+                linkBtn.style.display = 'block';
+            } else {
+                linkBtn.style.display = 'none';
+            }
+        }
+
+        function goBack() {
+            document.getElementById('home-view').style.display = 'grid';
+            document.getElementById('detail-view').style.display = 'none';
+        }
     </script>
 </body>
 </html>
